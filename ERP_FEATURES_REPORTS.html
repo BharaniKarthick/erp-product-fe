@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Product Frontend - Features & Reports Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #1275e2;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            color: #1275e2;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header .metadata {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .toc {
+            background-color: #f0f4f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 40px;
+            border-left: 4px solid #1275e2;
+        }
+        
+        .toc h2 {
+            color: #1275e2;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .toc ol {
+            margin-left: 20px;
+        }
+        
+        .toc li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            page-break-inside: avoid;
+        }
+        
+        .section h2 {
+            color: #1275e2;
+            font-size: 22px;
+            border-bottom: 2px solid #1275e2;
+            padding-bottom: 10px;
+            margin: 30px 0 20px 0;
+        }
+        
+        .section h3 {
+            color: #005ab4;
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .section h4 {
+            color: #333;
+            font-size: 14px;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .feature-box {
+            background-color: #f9f9f9;
+            border-left: 4px solid #1275e2;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        
+        .feature-box h4 {
+            color: #1275e2;
+            margin-top: 0;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #1275e2;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            border-radius: 3px;
+            margin: 15px 0;
+        }
+        
+        .success {
+            color: #28a745;
+        }
+        
+        .planned {
+            color: #666;
+            text-decoration: line-through;
+        }
+        
+        .roadmap-phase {
+            background-color: #e8f4f8;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        
+        .roadmap-phase h4 {
+            color: #17a2b8;
+            margin-top: 0;
+        }
+        
+        .footer {
+            text-align: center;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            margin-top: 50px;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .page-break {
+            page-break-after: always;
+            margin: 40px 0;
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+            }
+            
+            .container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>ERP Product Frontend</h1>
+            <h2>Features & Reports Documentation</h2>
+            <div class="metadata">
+                <p><strong>Document Date:</strong> April 25, 2026</p>
+                <p><strong>Version:</strong> 1.0</p>
+                <p><strong>Status:</strong> Current Features + Future Roadmap</p>
+            </div>
+        </div>
+        
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li>Current Features</li>
+                <li>Current Reports</li>
+                <li>Future Reports to be Added (15 Reports)</li>
+                <li>Feature Enhancement Roadmap</li>
+                <li>Technical Specifications</li>
+                <li>Performance & Deployment</li>
+            </ol>
+        </div>
+        
+        <!-- Section 1: Current Features -->
+        <div class="section">
+            <h2>1. Current Features</h2>
+            
+            <h3>Dashboard</h3>
+            <div class="feature-box">
+                <h4>🎯 Real-time KPI Metrics</h4>
+                <ul>
+                    <li>Total Revenue tracking</li>
+                    <li>Total Production Cost analysis</li>
+                    <li>Net Profit calculation</li>
+                    <li>Profit Margin percentage</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>⚠️ Alerts & Notifications</h4>
+                <ul>
+                    <li>Low Inventory Alerts</li>
+                    <li>Negative Profit Order Alerts</li>
+                    <li>Delayed Order Alerts</li>
+                    <li>Recent orders listing with quick filters</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>🔍 Global Search</h4>
+                <ul>
+                    <li>Search across orders, customers, and SKUs</li>
+                    <li>Real-time filtering and display</li>
+                </ul>
+            </div>
+            
+            <h3>Orders Management</h3>
+            <div class="feature-box">
+                <h4>📋 Order Listing Features</h4>
+                <ul>
+                    <li>Complete order table with comprehensive details</li>
+                    <li>Search functionality (orders, customers, SKUs)</li>
+                    <li>Quick filters (All Orders, Negative Profit, Delayed)</li>
+                    <li>Compact table design with optimized row height</li>
+                    <li>Date fields display on single line</li>
+                    <li>Column display: Order ID, Number, Customer, Product Type, Fabric Type, Quantity, Dates, Costs, Status</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>🔄 Status Management</h4>
+                <ul>
+                    <li>Dynamic status transitions</li>
+                    <li>8 status states: Draft, Confirmed, In Production, QC, Ready for Dispatch, Dispatched, Completed, On Hold</li>
+                    <li>Status change notes and tracking</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>🏢 Order Details & Workspace</h4>
+                <ul>
+                    <li>Materials breakdown (two-column layout)</li>
+                    <li>Smart material bucketing (Dyes & Chemicals vs Solvents & Finishers)</li>
+                    <li>Labor costs and shift information</li>
+                    <li>Machine costs and usage tracking</li>
+                    <li>Color-coded transaction audit log</li>
+                    <li>Comprehensive cost breakdown summary</li>
+                </ul>
+            </div>
+            
+            <h3>Inventory Management</h3>
+            <div class="feature-box">
+                <h4>📦 Inventory Listing</h4>
+                <ul>
+                    <li>Material table with stock information</li>
+                    <li>Tab-based category filtering</li>
+                    <li>Low Stock Only filter</li>
+                    <li>Search by material name, SKU, or category</li>
+                    <li>Displays: Material Name, Category, Current Stock, Unit, Cost/Unit, Active Status, Alerts, Total Value, Health Status</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>🔧 Inventory Operations</h4>
+                <ul>
+                    <li>Add new inventory items</li>
+                    <li>Edit material properties</li>
+                    <li>Set pricing and stock levels</li>
+                    <li>Configure reorder points</li>
+                    <li>Delete items</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>📊 Transaction History</h4>
+                <ul>
+                    <li>Complete transaction log with date, item, type, quantity, balance</li>
+                    <li>Date range filtering</li>
+                    <li>Search functionality</li>
+                    <li>Pagination (20 items per page)</li>
+                </ul>
+            </div>
+            
+            <h3>Reports Center</h3>
+            <div class="feature-box">
+                <h4>📈 Report Capabilities</h4>
+                <ul>
+                    <li>Period selection (Weekly, Monthly, Custom)</li>
+                    <li>KPI Cards with expandable details</li>
+                    <li>Order-wise Profit Breakdown with export to CSV</li>
+                    <li>Customer-wise Profit Breakdown (Coming Soon)</li>
+                    <li>Financial Summary and Trend Indicators</li>
+                    <li>Detailed Order Report with cost analysis</li>
+                </ul>
+            </div>
+            
+            <h3>Additional Modules</h3>
+            <div class="feature-box">
+                <h4>👥 User Management</h4>
+                <ul>
+                    <li>Employee management (Add/Edit)</li>
+                    <li>Customer management (Add/Edit)</li>
+                    <li>Authentication system</li>
+                    <li>Settings & Preferences</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- Section 2: Current Reports -->
+        <div class="section">
+            <h2>2. Current Reports</h2>
+            
+            <div class="feature-box">
+                <h4>✓ Financial Report</h4>
+                <ul>
+                    <li>Total Revenue summary</li>
+                    <li>Total Production Costs</li>
+                    <li>Net Profit calculation</li>
+                    <li>Profit Margin analysis</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>✓ Order-wise Profit Report</h4>
+                <ul>
+                    <li>Individual order profitability</li>
+                    <li>Cost vs Revenue comparison</li>
+                    <li>Profit/Loss by order</li>
+                    <li>Trend indicators (↑ / ↓)</li>
+                    <li>Export to CSV</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>✓ Inventory Report</h4>
+                <ul>
+                    <li>Total inventory value</li>
+                    <li>Stock level analysis</li>
+                    <li>Material utilization tracking</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>✓ Order-wise Detailed Report</h4>
+                <ul>
+                    <li>Deep dive into order costs</li>
+                    <li>Material breakdown (categorized)</li>
+                    <li>Labor cost analysis</li>
+                    <li>Machine cost tracking</li>
+                    <li>Transaction audit trail with color-coding</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>✓ Recent Orders Report (Dashboard)</h4>
+                <ul>
+                    <li>Dashboard view of recent orders</li>
+                    <li>Status tracking</li>
+                    <li>Quick filters by order status</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- Section 3: Future Reports -->
+        <div class="section">
+            <h2>3. Future Reports to be Added</h2>
+            
+            <div class="highlight">
+                <strong>📋 15 Strategic Reports Planned</strong><br>
+                Below are the detailed future reports that will enhance business intelligence and decision-making.
+            </div>
+            
+            <h3>Report 1: Customer-wise Profit Breakdown</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>Identify most profitable customers</li>
+                    <li>Total revenue & cost per customer</li>
+                    <li>Net profit & margin per customer</li>
+                    <li>Order count & average order value</li>
+                    <li>Customer health score</li>
+                </ul>
+            </div>
+            
+            <h3>Report 2: Product Category Performance</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>Revenue, cost, and profit by product type</li>
+                    <li>Top & slowest moving products</li>
+                    <li>Order volume analysis</li>
+                    <li>Seasonal trends & demand forecasting</li>
+                    <li>Category comparison charts</li>
+                </ul>
+            </div>
+            
+            <h3>Report 3: Supplier Performance</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>Cost & quality metrics by supplier</li>
+                    <li>Delivery time performance</li>
+                    <li>Supplier reliability score</li>
+                    <li>Price trend analysis</li>
+                    <li>Supplier ranking & cost comparison</li>
+                </ul>
+            </div>
+            
+            <h3>Report 4: Production Efficiency</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>Cost per unit & labor efficiency</li>
+                    <li>Machine utilization rate</li>
+                    <li>Waste/Scrap analysis</li>
+                    <li>Cycle time & queue time per order</li>
+                    <li>Department comparison & bottleneck identification</li>
+                </ul>
+            </div>
+            
+            <h3>Report 5: Labor Cost Analysis</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>Total labor cost per order & unit</li>
+                    <li>Employee productivity ranking</li>
+                    <li>Shift-wise cost breakdown</li>
+                    <li>Overtime analysis & trends</li>
+                    <li>Department labor distribution</li>
+                </ul>
+            </div>
+            
+            <h3>Report 6: Machine/Equipment Utilization</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>Machine utilization percentage</li>
+                    <li>Downtime hours & maintenance frequency</li>
+                    <li>Cost per machine & capacity available</li>
+                    <li>Equipment replacement recommendations</li>
+                    <li>Maintenance scheduling</li>
+                </ul>
+            </div>
+            
+            <h3>Report 7: Inventory Turnover & Aging</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>Inventory turnover ratio & Days Inventory Outstanding</li>
+                    <li>Aged inventory analysis</li>
+                    <li>Stock level vs forecasted demand</li>
+                    <li>Obsolete item identification</li>
+                    <li>Reorder recommendations & warehouse optimization</li>
+                </ul>
+            </div>
+            
+            <h3>Report 8: Order On-time Delivery</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>On-time delivery percentage</li>
+                    <li>Average delay & early delivery metrics</li>
+                    <li>Delivery accuracy & customer SLA compliance</li>
+                    <li>Trend analysis & bottleneck identification</li>
+                </ul>
+            </div>
+            
+            <h3>Report 9: Quality/Defect Analysis</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>Defect rate per order</li>
+                    <li>Rework cost & quality inspection results</li>
+                    <li>Return & complaint rates</li>
+                    <li>Defect root cause analysis</li>
+                    <li>Cost of poor quality (COPQ)</li>
+                </ul>
+            </div>
+            
+            <h3>Report 10: Cash Flow & Receivables</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>Days Sales Outstanding (DSO)</li>
+                    <li>Outstanding receivables by customer</li>
+                    <li>Payment status tracking & collection effectiveness</li>
+                    <li>Aging analysis of receivables</li>
+                    <li>Forecasted cash position</li>
+                </ul>
+            </div>
+            
+            <h3>Report 11: Margin Analysis by Dimension</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>Margin analysis by product type, fabric, customer, order size, time period</li>
+                    <li>Heatmap visualization</li>
+                    <li>Margin improvement opportunities</li>
+                    <li>Pricing recommendations & mix analysis</li>
+                </ul>
+            </div>
+            
+            <h3>Report 12: Resource Allocation</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>Material allocation efficiency</li>
+                    <li>Labor allocation optimization</li>
+                    <li>Machine scheduling efficiency</li>
+                    <li>Capacity planning & conflict identification</li>
+                </ul>
+            </div>
+            
+            <h3>Report 13: Budget vs Actual</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>Revenue, cost, and profit vs budget</li>
+                    <li>Variance analysis & department-wise variance</li>
+                    <li>Trend comparison & forecast updating</li>
+                </ul>
+            </div>
+            
+            <h3>Report 14: Compliance & Audit</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>Audit completeness & compliance violations</li>
+                    <li>Certification status</li>
+                    <li>Complete audit trail & user activity tracking</li>
+                    <li>Export for compliance purposes</li>
+                </ul>
+            </div>
+            
+            <h3>Report 15: Dashboard/KPI Export</h3>
+            <div class="feature-box">
+                <h4>Purpose & Metrics</h4>
+                <ul>
+                    <li>Export formats: PDF, Excel with pivot tables, PowerPoint</li>
+                    <li>Custom date range & metric selection</li>
+                    <li>Branding options & scheduled email delivery</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- Section 4: Roadmap -->
+        <div class="section">
+            <h2>4. Feature Enhancement Roadmap</h2>
+            
+            <div class="roadmap-phase">
+                <h4>Phase 1 (Q2 2026)</h4>
+                <ul>
+                    <li>Implement Customer-wise Profit Breakdown report</li>
+                    <li>Add Product Category Performance report</li>
+                    <li>Add data visualization charts (bar, line, pie)</li>
+                    <li>Implement custom date range selection</li>
+                </ul>
+            </div>
+            
+            <div class="roadmap-phase">
+                <h4>Phase 2 (Q3 2026)</h4>
+                <ul>
+                    <li>Add Supplier Performance report</li>
+                    <li>Add Production Efficiency report</li>
+                    <li>Implement report scheduling & email delivery</li>
+                    <li>Add more export formats (Excel, CSV)</li>
+                </ul>
+            </div>
+            
+            <div class="roadmap-phase">
+                <h4>Phase 3 (Q4 2026)</h4>
+                <ul>
+                    <li>Add Labor Cost Analysis report</li>
+                    <li>Add Machine Utilization report</li>
+                    <li>Add Inventory Aging report</li>
+                    <li>Implement predictive analytics</li>
+                </ul>
+            </div>
+            
+            <div class="roadmap-phase">
+                <h4>Phase 4 (Q1 2027)</h4>
+                <ul>
+                    <li>Add Order Delivery Performance report</li>
+                    <li>Add Quality/Defect report</li>
+                    <li>Implement advanced filtering & drill-down</li>
+                    <li>Add real-time KPI alert system</li>
+                </ul>
+            </div>
+            
+            <div class="roadmap-phase">
+                <h4>Phase 5 (Q2 2027+)</h4>
+                <ul>
+                    <li>Add remaining reports (Cash Flow, Margin, Compliance)</li>
+                    <li>Implement AI-powered insights & recommendations</li>
+                    <li>Add Mobile app support</li>
+                    <li>Multi-language support & Role-based access control</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Section 5: Technical -->
+        <div class="section">
+            <h2>5. Technical Specifications</h2>
+            
+            <h3>Technology Stack</h3>
+            <ul>
+                <li><strong>Frontend Framework:</strong> React 18+</li>
+                <li><strong>UI Library:</strong> Material-UI (MUI) v5+</li>
+                <li><strong>Build Tool:</strong> Vite</li>
+                <li><strong>Styling:</strong> MUI sx prop with responsive breakpoints</li>
+                <li><strong>State Management:</strong> React Hooks</li>
+                <li><strong>API Integration:</strong> Axios with custom services</li>
+                <li><strong>Charts:</strong> Planned - Chart.js or Recharts</li>
+                <li><strong>PDF Generation:</strong> Planned - jsPDF or react-pdf</li>
+            </ul>
+            
+            <h3>Responsive Design</h3>
+            <table>
+                <tr>
+                    <th>Breakpoint</th>
+                    <th>Size</th>
+                    <th>Device Type</th>
+                </tr>
+                <tr>
+                    <td>xs</td>
+                    <td>0px</td>
+                    <td>Mobile phones</td>
+                </tr>
+                <tr>
+                    <td>sm</td>
+                    <td>600px</td>
+                    <td>Tablets</td>
+                </tr>
+                <tr>
+                    <td>md</td>
+                    <td>960px</td>
+                    <td>Desktop</td>
+                </tr>
+                <tr>
+                    <td>lg</td>
+                    <td>1280px</td>
+                    <td>Large Desktop</td>
+                </tr>
+                <tr>
+                    <td>xl</td>
+                    <td>1920px+</td>
+                    <td>Extra Large</td>
+                </tr>
+            </table>
+            
+            <h3>Performance Targets</h3>
+            <ul>
+                <li>Page load time: &lt; 2 seconds</li>
+                <li>Report generation: &lt; 5 seconds</li>
+                <li>API response time: &lt; 500ms</li>
+                <li>Database query time: &lt; 1 second</li>
+                <li>Memory usage: &lt; 200MB</li>
+                <li>Current bundle size: ~239KB (gzipped)</li>
+            </ul>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Document prepared by:</strong> AI Code Generation</p>
+            <p><strong>Last Updated:</strong> April 25, 2026</p>
+            <p><strong>Next Review:</strong> June 2026</p>
+            <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+            <p>© 2026 ERP Product Frontend. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
